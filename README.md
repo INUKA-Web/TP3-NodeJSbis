@@ -1,6 +1,8 @@
 # TP3-NodeJSbis
 Suite du cours / TP NodeJS
 
+Retrouvez le code de l'application qu'on a développée ensemble dans la branche [master](https://github.com/INUKA-Web/TP3-NodeJSbis/tree/master) de ce projet.
+
 ## Correction de l'exercice du TP précédent
 
 > envoyer les paramètres en POST et non en GET : docs à http://expressjs.com/en/5x/api.html#app.post.method et http://expressjs.com/en/5x/api.html#req.body
@@ -63,3 +65,39 @@ Faire une SPA avec 3 vues :
 - Accueil
 - La page qui dit bonjour en AJAX
 - L'horloge en AJAX
+
+### Préambule : modifications du serveur
+
+Modifier le fichier `index.js` pour lui ajouter :
+
+- Gestion du corps de la requête en JSON : `app.use(express.json())`
+- Gestion des fichiers statiques : `app.use('/static', express.static('public'))`
+
+**Rappel** : le serveur doit exposer une route (par exemple `/disbonjour-json`) qui récupère un paramètre avec le com de la personne à qui dire bonjour, et capable de renvoyer un message dans un objet JSON.
+
+### Création de la page principale
+
+- à partir de [cette page](https://perso.liris.cnrs.fr/lionel.medini/enseignement/M1IF03/Tutoriels/exemples/SPA/exemple_SPA.html)
+  - la recopier dans un fichier nommé `spa.html`, dans le répertoire `public`
+  - on peut requêter cette page sur le serveur par l'URL : http://localhost:3000/static/spa.html
+
+### Modification de la vue 1 pour requêter "disbonjour" en AJAX
+
+- en utilisant le code décrit dans [ce cours](https://perso.liris.cnrs.fr/lionel.medini/enseignement/M1IF03/CM/4_1_AJAX.pdf) (slide 41) pour changer de vue côté client
+- en utilisant le code des slides 23 et 24 du même cours pour envoyer une requête asynchrone au serveur et envoyer les données formattées en JSON.
+- en modifiant la page HTML de la SPA pour y ajouter un champ texte et un bouton (similaire au formulaire qu'on avait mis dans la page `index.html`)
+- en rajoutant un script qui se déclenche quand on clique sur le bouton  et qui envoie la requête avec `fetch()`
+
+Le code fonctionnel pour cette partie est [ici](https://github.com/INUKA-Web/TP3-NodeJSbis/tree/93aba0f99d1b944c68c9d0ba2d4990d24d13d945).
+
+## &Agrave; faire pour la prochaine fois
+
+Sur le même modèle, modifier la vue 2 pour qu'elle affiche l'horloge en requêtant le serveur toutes les secondes et en mettant à jour son affichage.
+
+_Indication_ : le processus est à peu près le même :
+
+- créer une route côté serveur qui renvoie l'heure en JSON
+- utiliser la fonction `setInterval()` qu'on a vue à la 2ème séance pour faire des requêtes régulières (pas besoin de formulaire ni de bouton).
+- rajouter un élément HTML avec un ID sur la page, et rajouter le contenu de la réponse de la même façon que pour la vue 1.
+
+Amusez-vous bien ;-)...
