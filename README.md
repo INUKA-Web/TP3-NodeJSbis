@@ -31,6 +31,8 @@ Suite du cours / TP NodeJS
 
 Utilisation de EJS avec Express
 
+![Workflow de templating](templating.png)
+
 Exemple de tuto : https://www.digitalocean.com/community/tutorials/how-to-use-ejs-to-template-your-node-application-fr
 
 **Préparation :**
