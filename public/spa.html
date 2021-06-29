@@ -16,6 +16,21 @@
                 $('.active').removeClass('active').addClass('inactive');
                 $(hash).removeClass('inactive').addClass('active');
             }
+
+            function disBonjour() {
+                const data = {
+                    personne: document.getElementById("personne").value
+                };
+                fetch('/disbonjour-json', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8",
+                    },
+                    body: JSON.stringify(data),
+                })
+                .then(res => res.json())
+                .then(json => document.getElementById("result").innerHTML = json.message);
+            }
         </script>
     </head>
     <body>
@@ -23,12 +38,22 @@
         <section id='index' class='active'>
             <p>Ceci est la vue d'accueil. Vous pouvez accéder aux autres vues en cliquant sur les liens suivants :</p>
             <ul>
-                <li><a href='#vue1'>Vue 1</a></li>
+                <li><a href='#bonjour'>La page qui dit bonjour</a></li>
                 <li><a href='#vue2'>Vue 2</a></li>
             </ul>
         </section>
-        <section id='vue1' class='inactive'>
-            <p>Ceci est la vue 1. Elle correspond à une fonctionnalité donnée de l'application.</p>
+        <section id='bonjour' class='inactive'>
+            <h2>Dites bonjour à qui vous voulez</h2>
+            
+            <p>
+                Entrez le nom de la personne
+                <input type="text" id="personne">
+                <button onclick="disBonjour()">Envoyer</button>
+            </p>
+            <hr>
+            <h2>Résultat</h2>
+            <h3 id="result"></h3>
+
             <p>Retour à la <a href='#index'>vue accueil</a>.</p>
         </section>
         <section id='vue2' class='inactive'>
