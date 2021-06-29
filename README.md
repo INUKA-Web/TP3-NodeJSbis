@@ -55,3 +55,11 @@ Faire une page Web simple, et l'enregistrer dans `views` avec une extension .ejs
 ## Single-Page Application
 
 Cours : https://perso.liris.cnrs.fr/lionel.medini/enseignement/M1IF03/CM/4_1_AJAX.pdf
+
+### Objectif du TP
+
+Faire une SPA avec 3 vues :
+
+- Accueil
+- La page qui dit bonjour en AJAX
+- L'horloge en AJAX
