@@ -3,9 +3,17 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = 3000
 
+// Gestion du corps de la requête
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.json())
 
+// Gestion des fichiers statiques
+app.use('/static', express.static('public'))
+
+// Conficguration du moteur de rendu
 app.set('view engine', 'ejs');
+
+// Traitement des requêtes
 
 app.get('/', (req, res) => {
   res.sendFile('index.html', {"root":"."})
