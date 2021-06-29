@@ -52,3 +52,6 @@ Faire une page Web simple, et l'enregistrer dans `views` avec une extension .ejs
 2. Dans le template, rajouter une variable qui utilise le nom de la propriété de l'objet JSON pour le placer dans la page HTML :
   `<h1>Bonjour <%= personne %></h1>`
 
+## Single-Page Application
+
+Cours : https://perso.liris.cnrs.fr/lionel.medini/enseignement/M1IF03/CM/4_1_AJAX.pdf
