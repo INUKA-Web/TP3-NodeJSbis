@@ -16,9 +16,33 @@ Suite du cours / TP NodeJS
   })
   ```
 
+
 > faire en sorte que `/disbonjour` renvoie une page HTML (et pas juste du texte) : modifier le contenu de "req.send" en y rajoutant du code HTML
 
+`res.send('<html><body><h1>Bonjour <span style="color:red">' + req.body.personne + '</span></h1></body></html>')`
 
 > faire en sorte d'inclure l'horloge côté client qu'on a faite la semaine dernière dans la réponse de disbonjour :
   - rajouter une balise "script" dans la page HTML
   - servir le fichier de script en question à l'aide de http://expressjs.com/en/5x/api.html#res.sendFile (regarder ce qui a été fait pour servir le fichier index.html).
+
+...
+
+## Templating de pages Web
+
+Utilisation de EJS avec Express
+
+Exemple de tuto : https://www.digitalocean.com/community/tutorials/how-to-use-ejs-to-template-your-node-application-fr
+
+**Préparation :**
+
+1. Installer EJS : `npm i ejs` dans le répertoire de votre projet
+2. Définir EJS comme moteur de rendu dans le serveur : ajouter l'instruction `app.set('view engine', 'ejs');` dans le fichier index.js
+3. Créer un répertoire `views` dans le répertoire du projet, où vous mettrez les modèles (templates) avec une extension .ejs
+
+**Création d'un template :**
+
+Faire une page Web simple
+
+**Association de ce template avec une requête du serveur :**
+
+...
