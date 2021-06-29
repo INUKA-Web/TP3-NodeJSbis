@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <title>Exemple de SPA</title>
+        <meta charset="UTF-8">
+        <style>
+            .active { display: block; }
+            .inactive { display: none; }
+        </style>
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+        <script>
+            function show(hash) {
+                $('.active').removeClass('active').addClass('inactive');
+                $(hash).removeClass('inactive').addClass('active');
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ma première SPA</h1>
+        <section id='index' class='active'>
+            <p>Ceci est la vue d'accueil. Vous pouvez accéder aux autres vues en cliquant sur les liens suivants :</p>
+            <ul>
+                <li><a href='#vue1'>Vue 1</a></li>
+                <li><a href='#vue2'>Vue 2</a></li>
+            </ul>
+        </section>
+        <section id='vue1' class='inactive'>
+            <p>Ceci est la vue 1. Elle correspond à une fonctionnalité donnée de l'application.</p>
+            <p>Retour à la <a href='#index'>vue accueil</a>.</p>
+        </section>
+        <section id='vue2' class='inactive'>
+            <p>Ceci est la vue 2. Elle correspond à une autre fonctionnalité de l'application.</p>
+            <p>Retour à la <a href='#index'>vue accueil</a>.</p>
+        </section>
+        <script>
+            window.addEventListener('hashchange', () => { show(window.location.hash); });
+        </script>
+    </body>
+</html>
