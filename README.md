@@ -41,8 +41,12 @@ Exemple de tuto : https://www.digitalocean.com/community/tutorials/how-to-use-ej
 
 **Création d'un template :**
 
-Faire une page Web simple
+Faire une page Web simple, et l'enregistrer dans `views` avec une extension .ejs
 
 **Association de ce template avec une requête du serveur :**
 
-...
+1. Dans index.js, rajouter un objet JSON dans l'appel du template, avec les données à templater :
+  `res.render('bonjour', {personne: req.body.personne})`
+2. Dans le template, rajouter une variable qui utilise le nom de la propriété de l'objet JSON pour le placer dans la page HTML :
+  `<h1>Bonjour <%= personne %></h1>`
+
