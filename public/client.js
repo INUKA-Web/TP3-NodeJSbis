@@ -20,3 +20,8 @@ function disBonjour() {
     .then(json => document.getElementById("result").innerHTML = json.message);
 }
 
+function getTime() {
+    fetch('/time')
+    .then(res => res.json())
+    .then(json => document.getElementById("heure").innerHTML = json.time)
+}

@@ -16,7 +16,9 @@ app.set('view engine', 'ejs');
 // Traitement des requêtes
 
 app.get('/', (req, res) => {
-  res.sendFile('index.html', {"root":"."})
+//  res.sendFile('index.html', {"root":"."})
+  res.setHeader('Location', '/static/spa.html')
+  res.sendStatus(301)
 })
 
 app.get('/coucou', (req, res) => {
@@ -35,6 +37,12 @@ app.post('/disbonjour-json', (req, res) => {
 
 app.post('/disbonjour-template-html', (req, res) => {
   res.render('bonjour', {personne: req.body.personne})
+})
+
+app.get('/time', (req, res) => {
+  res.set('Content-Type', 'application/json')
+  const time = new Date();
+  res.send('{"time": "' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds() + '"}')
 })
 
 app.listen(port, () => {
