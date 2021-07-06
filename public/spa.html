@@ -3,35 +3,12 @@
     <head>
         <title>Exemple de SPA</title>
         <meta charset="UTF-8">
-        <style>
-            .active { display: block; }
-            .inactive { display: none; }
-        </style>
+        <link rel="stylesheet" href="spa.css">
         <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-        <script>
-            function show(hash) {
-                $('.active').removeClass('active').addClass('inactive');
-                $(hash).removeClass('inactive').addClass('active');
-            }
-
-            function disBonjour() {
-                const data = {
-                    personne: document.getElementById("personne").value
-                };
-                fetch('/disbonjour-json', {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json; charset=utf-8",
-                    },
-                    body: JSON.stringify(data),
-                })
-                .then(res => res.json())
-                .then(json => document.getElementById("result").innerHTML = json.message);
-            }
-        </script>
+        <script src="client.js"></script>
     </head>
 
     <body>

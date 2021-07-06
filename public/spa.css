@@ -1,0 +1,7 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.active { display: block; }
+.inactive { display: none; }

@@ -4,7 +4,7 @@ const app = express()
 const port = 3000
 
 // Gestion du corps de la requête
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 // Gestion des fichiers statiques
